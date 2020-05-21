@@ -1,0 +1,19 @@
+# csd mul
+for depth in 25
+do
+	for ((mul=1; mul < 5; mul++))
+	do
+		echo $depth $mul >> new2_sd_mul_result.txt	
+#		echo $depth $rev >> csd_mul_result.txt	
+		echo $depth $mul >> new2_int_mul_result.txt	
+		for rand in 1 2 3 4 5 6 7 8 9 10
+		do 
+			./rand_csd_mul $depth $mul $rand | ./sd_set >> new2_sd_mul_result.txt
+#			./rand_rev $depth $rev $rand | ./csd_set >> csd_result.txt
+			./rand_csd_mul $depth $mul $rand | ./int_set >> new2_int_mul_result.txt
+		done
+		echo "" >> new2_sd_mul_result.txt	
+#		echo "" >> csd_result.txt	
+		echo "" >> new2_int_mul_result.txt	
+	done
+done

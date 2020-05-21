@@ -1,0 +1,14 @@
+#
+for depth in 10 15 20
+do
+	for ((star=1; star< $depth; star++))
+	do
+#echo $depth $star >> sd_result.txt	
+		echo $depth $star >> int_set_result.txt	
+		for rand in 1 2 3 4 5 6 7 8 9 10
+		do 
+			./rand_csd $depth $star $rand | ./int_set >> int_set_result.txt
+		done
+		echo "" >> int_set_result.txt	
+	done
+done
